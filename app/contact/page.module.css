@@ -1,0 +1,110 @@
+.title {
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    text-align: center;
+    color: var(--color-text-muted);
+    margin-bottom: 4rem;
+    font-size: 1.2rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+}
+
+.formContainer {
+    background: var(--color-surface);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+.formGroup input,
+.formGroup select,
+.formGroup textarea {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: #fff;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+.formGroup input:focus,
+.formGroup select:focus,
+.formGroup textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.infoBox {
+    background: var(--color-surface);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.infoBox h3 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.infoBox p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+.infoBox strong {
+    color: #fff;
+}
+
+.hoursList {
+    list-style: none;
+}
+
+.hoursList li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.8rem;
+    color: var(--color-text-muted);
+    border-bottom: 1px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+.hoursList li span {
+    color: #fff;
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

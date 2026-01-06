@@ -1,0 +1,75 @@
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.title {
+    font-size: 3rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+}
+
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+.filterBtn {
+    padding: 0.5rem 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    color: var(--color-text-muted);
+    transition: all 0.2s;
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.filterBtn:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+.active {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.noResults {
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 1.2rem;
+    grid-column: 1 / -1;
+    padding: 4rem 0;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .filterContainer {
+        gap: 0.5rem;
+    }
+
+    .filterBtn {
+        padding: 0.4rem 1rem;
+        font-size: 0.8rem;
+    }
+}

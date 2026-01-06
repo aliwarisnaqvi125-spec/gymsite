@@ -1,0 +1,30 @@
+
+> gymsite@0.1.0 build
+> next build
+
+▲ Next.js 16.1.1 (Turbopack)
+
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 1 errors:
+./app/globals.css:1:2
+Module not found: Can't resolve './variables.css'
+[0m[31m[1m>[22m[39m[90m 1 |[39m [33m@[39m[36mimport[39m [32m'./variables.css'[39m[33m;[39m
+ [90m   |[39m  [31m[1m^[22m[39m
+ [90m 2 |[39m
+ [90m 3 |[39m [33m*[39m {
+ [90m 4 |[39m   box[33m-[39msizing[33m:[39m border[33m-[39mbox[33m;[39m[0m
+
+
+
+Import trace:
+  Client Component Browser:
+    ./app/globals.css [Client Component Browser]
+    ./app/layout.js [Server Component]
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+    at <unknown> (./app/globals.css:1:2)
+    at <unknown> (https://nextjs.org/docs/messages/module-not-found)
