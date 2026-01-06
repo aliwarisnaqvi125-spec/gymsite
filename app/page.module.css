@@ -44,6 +44,8 @@
   text-transform: uppercase;
   margin-bottom: 1rem;
   font-size: 1.2rem;
+  text-shadow: var(--glow-sm);
+  animation: neon-pulse 2s infinite ease-in-out;
 }
 
 .title {
@@ -52,6 +54,7 @@
   text-transform: uppercase;
   line-height: 1.1;
   margin-bottom: 2rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
 }
 
 .subtitle {
@@ -92,6 +95,7 @@
 .featureCard:hover {
   transform: translateY(-5px);
   border-color: var(--color-primary);
+  box-shadow: var(--glow-md);
 }
 
 .featureTitle {

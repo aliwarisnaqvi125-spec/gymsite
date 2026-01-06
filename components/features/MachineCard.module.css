@@ -8,7 +8,7 @@
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--glow-md);
     border-color: var(--color-primary);
 }
 
@@ -34,12 +34,14 @@
     top: 10px;
     right: 10px;
     background: var(--color-primary);
-    color: #fff;
+    color: #000;
     padding: 4px 10px;
     border-radius: 4px;
     font-size: 0.8rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
+    box-shadow: var(--glow-sm);
+    animation: neon-pulse 3s infinite ease-in-out;
 }
 
 .content {
@@ -50,6 +52,7 @@
     font-size: 1.25rem;
     margin-bottom: 0.8rem;
     color: #fff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
 .description {

@@ -1,6 +1,7 @@
 .footer {
-    background-color: var(--color-surface);
-    border-top: 1px solid var(--color-border);
+    background-color: #050505;
+    border-top: 1px solid var(--color-primary);
+    box-shadow: 0 -4px 20px var(--color-primary-glow);
     padding: 4rem 0 2rem;
     margin-top: auto;
 }
@@ -20,10 +21,12 @@
     font-weight: 800;
     margin-bottom: 1rem;
     letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .highlight {
     color: var(--color-primary);
+    text-shadow: var(--glow-sm);
 }
 
 .description {

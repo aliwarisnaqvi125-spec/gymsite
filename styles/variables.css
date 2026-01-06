@@ -1,22 +1,22 @@
 :root {
   /* Colors */
-  --color-primary: #E50914;
-  /* Vibrant Red */
-  --color-primary-hover: #b20710;
+  --color-primary: #00f7ff;
+  /* Neon Cyan */
+  --color-primary-hover: #00d1d9;
+  --color-primary-glow: rgba(0, 247, 255, 0.5);
 
-  --color-bg: #f9fafb;
-  /* Light Gray Background */
-  --color-surface: #ffffff;
-  /* White Surface */
-  --color-surface-light: #f3f4f6;
-  /* Slightly Darker Light Surface */
+  --color-bg: #050505;
+  /* Deep Black */
+  --color-surface: #111111;
+  /* Dark Gray Surface */
+  --color-surface-light: #1a1a1a;
 
-  --color-text-main: #1f2937;
-  /* Dark Gray Text */
-  --color-text-muted: #6b7280;
-  /* Muted Gray Text */
-  --color-border: #e5e7eb;
-  /* Light Border */
+  --color-text-main: #ffffff;
+  /* White Text */
+  --color-text-muted: #a0a0a0;
+  /* Muted Light Gray */
+  --color-border: #222222;
+  /* Dark Border */
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -35,4 +35,9 @@
   /* Container */
   --container-width: 1200px;
   --container-padding: 1.5rem;
+
+  /* Shadows & Glows */
+  --glow-sm: 0 0 10px var(--color-primary-glow);
+  --glow-md: 0 0 20px var(--color-primary-glow);
+  --glow-lg: 0 0 40px var(--color-primary-glow);
 }

@@ -10,10 +10,11 @@
 }
 
 .scrolled {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(5, 5, 5, 0.95);
     padding: 1rem 0;
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--color-border);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--color-primary);
+    box-shadow: 0 4px 20px var(--color-primary-glow);
 }
 
 .container {
@@ -30,10 +31,12 @@
     font-weight: 800;
     color: #fff;
     letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 .highlight {
     color: var(--color-primary);
+    text-shadow: var(--glow-sm);
 }
 
 .navMenu {
