@@ -1,0 +1,31 @@
+:root {
+  /* Colors */
+  --color-primary: #E50914; /* Vibrant Red */
+  --color-primary-hover: #b20710;
+  
+  --color-bg: #000000;
+  --color-surface: #121212;
+  --color-surface-light: #1E1E1E;
+  
+  --color-text-main: #FFFFFF;
+  --color-text-muted: #A3A3A3;
+  --color-border: #333333;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+
+  /* Typography */
+  --font-family-sans: var(--font-outfit), sans-serif;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  
+  /* Container */
+  --container-width: 1200px;
+  --container-padding: 1.5rem;
+}
