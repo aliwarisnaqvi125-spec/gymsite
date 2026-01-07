@@ -1,87 +1,89 @@
-.title {
+.header {
     text-align: center;
-    font-size: 3rem;
-    text-transform: uppercase;
+    margin-bottom: 5rem;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
     margin-bottom: 1rem;
 }
 
 .subtitle {
-    text-align: center;
     color: var(--color-text-muted);
-    margin-bottom: 4rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
 }
 
 .formContainer {
-    background: var(--color-surface);
-    padding: 2.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
-}
-
-.formGroup {
-    margin-bottom: 1.5rem;
-}
-
-.formGroup label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #ddd;
-    font-size: 0.9rem;
-}
-
-.formGroup input,
-.formGroup select,
-.formGroup textarea {
-    width: 100%;
     padding: 1rem;
-    background: var(--color-bg);
-    border: 1px solid var(--color-border);
-    color: #fff;
-    border-radius: 4px;
-    font-family: inherit;
 }
 
-.formGroup input:focus,
-.formGroup select:focus,
-.formGroup textarea:focus {
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input,
+.select,
+.textarea {
+    width: 100%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 1.2rem;
+    color: #fff;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    border-radius: 0;
+    transition: all var(--transition-fast);
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
     outline: none;
     border-color: var(--color-primary);
+    background: var(--color-surface-light);
+}
+
+.textarea {
+    resize: none;
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .infoContainer {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .infoBox {
-    background: var(--color-surface);
-    padding: 2rem;
-    border-radius: 8px;
-    border: 1px solid var(--color-border);
+    border-left: 2px solid var(--color-primary);
+    padding-left: 2rem;
 }
 
-.infoBox h3 {
-    color: var(--color-primary);
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-}
-
-.infoBox p {
+.boxTitle {
+    font-size: 1.2rem;
     margin-bottom: 1rem;
-    line-height: 1.6;
-    color: var(--color-text-muted);
 }
 
-.infoBox strong {
-    color: #fff;
+.infoText {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
 }
 
 .hoursList {
@@ -91,20 +93,57 @@
 .hoursList li {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.8rem;
+    font-size: 0.85rem;
     color: var(--color-text-muted);
-    border-bottom: 1px solid #333;
-    padding-bottom: 0.5rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .hoursList li span {
     color: #fff;
-    font-weight: 600;
+    font-weight: 800;
 }
 
-@media (max-width: 768px) {
+.mapPlaceholder {
+    height: 250px;
+    background-color: var(--color-surface);
+    background-image:
+        linear-gradient(rgba(227, 27, 35, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(227, 27, 35, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.mapTag {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    box-shadow: var(--glow-sm);
+}
+
+.error {
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.success {
+    color: #4BB543;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+@media (max-width: 992px) {
     .grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 4rem;
     }
 }

@@ -66,44 +66,46 @@ export default function ContactPage() {
     };
 
     return (
-        <main className="section container">
-            <h1 className={styles.title}>Get In <span style={{ color: 'var(--color-primary)' }}>Touch</span></h1>
-            <p className={styles.subtitle}>Ready to start your journey? Contact us today.</p>
+        <main className="section container animate-fade-in">
+            <div className={styles.header}>
+                <h1 className={styles.title}>Join the <span className="red-text">Elite</span></h1>
+                <p className={styles.subtitle}>Begin your transformation journey today.</p>
+            </div>
 
             <div className={styles.grid}>
                 <div className={styles.formContainer}>
                     <form className={styles.form} onSubmit={handleSubmit}>
                         <div className={styles.formGroup}>
-                            <label htmlFor="name">Name</label>
                             <input
                                 id="name"
                                 name="name"
                                 type="text"
-                                placeholder="Your Name"
+                                placeholder="FULL NAME"
                                 value={formData.name}
                                 onChange={handleChange}
                                 required
+                                className={styles.input}
                             />
                         </div>
                         <div className={styles.formGroup}>
-                            <label htmlFor="email">Email</label>
                             <input
                                 id="email"
                                 name="email"
                                 type="email"
-                                placeholder="Your Email"
+                                placeholder="EMAIL ADDRESS"
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
+                                className={styles.input}
                             />
                         </div>
                         <div className={styles.formGroup}>
-                            <label htmlFor="subject">Subject</label>
                             <select
                                 id="subject"
                                 name="subject"
                                 value={formData.subject}
                                 onChange={handleChange}
+                                className={styles.select}
                             >
                                 <option>Membership Inquiry</option>
                                 <option>Personal Training</option>
@@ -111,45 +113,49 @@ export default function ContactPage() {
                             </select>
                         </div>
                         <div className={styles.formGroup}>
-                            <label htmlFor="message">Message</label>
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="5"
-                                placeholder="How can we help you?"
+                                placeholder="HOW CAN WE HELP YOU?"
                                 value={formData.message}
                                 onChange={handleChange}
                                 required
+                                className={styles.textarea}
                             ></textarea>
                         </div>
 
-                        {status.error && <p className={styles.error} style={{ color: 'red', marginBottom: '1rem' }}>{status.error}</p>}
-                        {status.success && <p className={styles.success} style={{ color: 'green', marginBottom: '1rem' }}>Message sent successfully!</p>}
+                        {status.error && <p className={styles.error}>{status.error}</p>}
+                        {status.success && <p className={styles.success}>Message sent successfully!</p>}
 
-                        <Button variant="primary" type="submit" disabled={status.loading}>
-                            {status.loading ? 'Sending...' : 'Send Message'}
+                        <Button variant="primary" type="submit" disabled={status.loading} className={styles.submitBtn}>
+                            {status.loading ? 'Processing...' : 'Send Message'}
                         </Button>
                     </form>
                 </div>
 
                 <div className={styles.infoContainer}>
                     <div className={styles.infoBox}>
-                        <h3>Contact Information</h3>
-                        <p><strong>Email:</strong> <br /> {contactConfig.email}</p>
-                        <p><strong>Address:</strong> <br /> {contactConfig.address.line1}, {contactConfig.address.line2}</p>
-                        <p><strong>Phone:</strong> <br /> {contactConfig.formattedPhone}</p>
+                        <h3 className={styles.boxTitle}>Contact</h3>
+                        <p className={styles.infoText}><strong>Email:</strong> {contactConfig.email}</p>
+                        <p className={styles.infoText}><strong>Direct:</strong> {contactConfig.formattedPhone}</p>
                     </div>
 
                     <div className={styles.infoBox}>
-                        <h3>Opening Hours</h3>
+                        <h3 className={styles.boxTitle}>Hours</h3>
                         <ul className={styles.hoursList}>
-                            <li><span>Mon - Fri:</span> {contactConfig.hours.weekdays}</li>
-                            <li><span>Saturday:</span> {contactConfig.hours.saturday}</li>
-                            <li><span>Sunday:</span> {contactConfig.hours.sunday}</li>
+                            <li><span>WEEKDAYS:</span> {contactConfig.hours.weekdays}</li>
+                            <li><span>SATURDAY:</span> {contactConfig.hours.saturday}</li>
+                            <li><span>SUNDAY:</span> {contactConfig.hours.sunday}</li>
                         </ul>
+                    </div>
+
+                    <div className={styles.mapPlaceholder}>
+                        <div className={styles.mapTag}>LUXURY DISTRICT, GC</div>
                     </div>
                 </div>
             </div>
         </main>
     );
 }
+

@@ -8,11 +8,11 @@ export default function MachineCard({ machine }) {
                 <Image
                     src={machine.image}
                     alt={machine.name}
-                    width={400}
-                    height={300}
+                    fill
                     className={styles.image}
                 />
                 <div className={styles.categoryTag}>{machine.category}</div>
+                <div className={styles.overlay}></div>
             </div>
             <div className={styles.content}>
                 <h3 className={styles.name}>{machine.name}</h3>
@@ -21,3 +21,4 @@ export default function MachineCard({ machine }) {
         </div>
     );
 }
+

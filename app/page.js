@@ -1,61 +1,101 @@
+'use client';
+
+import { useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
+import StatCounter from '@/components/features/StatCounter';
+import ServiceCard from '@/components/features/ServiceCard';
 import styles from './page.module.css';
 
 export default function Home() {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY;
+      const heroImage = document.querySelector(`.${styles.heroImage}`);
+
+      if (heroImage) {
+        // Parallax effect: move image slower than scroll
+        const parallaxSpeed = 0.5;
+        heroImage.style.transform = `scale(1.1) translateY(${scrolled * parallaxSpeed}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <main className={styles.main}>
       {/* Hero Section */}
       <section className={styles.hero}>
         <div className={styles.heroBackground}>
           <Image
-            src="/images/hero.png"
+            src="/images/hero_gym_8k.png"
             alt="Gym Interior"
             fill
             className={styles.heroImage}
             priority
           />
+          <div className={styles.overlay}></div>
         </div>
 
-        <div className={styles.heroContent}>
-          <p className={styles.tagline}>Welcome to the Elite</p>
-          <h1 className={styles.title}>FORGE YOUR <br /> LEGACY</h1>
+        <div className={`${styles.heroContent} animate-fade-in`}>
+          <span className={styles.tagline}>The Gold Standard of Fitness</span>
+          <h1 className={styles.title}>
+            <span className={styles.titleWord1}>Transform</span>{' '}
+            <span className={styles.titleWord2}>Your <span className="red-text">Body</span>.</span>
+            <br />
+            <span className={styles.titleWord3}>Build Your <span className="silver-text">Strength</span>.</span>
+          </h1>
           <p className={styles.subtitle}>
-            Experience the ultimate fitness environment with state-of-the-art equipment and professional guidance.
+            Experience elite training with state-of-the-art 8K equipment and world-class expert trainers in a premium luxury environment.
           </p>
           <div className={styles.ctaGroup}>
-            <Button href="/contact" variant="primary">Join Now</Button>
-            <Button href="/about" variant="secondary">Learn More</Button>
+            <Button href="/contact" variant="primary">Join the Elite</Button>
+            <Button href="/gallery" variant="secondary">Explore Gallery</Button>
           </div>
         </div>
       </section>
 
-      {/* Features Preview */}
-      <section className="section container">
-        <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '1rem', textTransform: 'uppercase' }}>
-          Why Choose <span style={{ color: 'var(--color-primary)' }}>ALEE'S</span>
-        </h2>
+      {/* Stats Section */}
+      <section className={styles.statsSection}>
+        <div className="container">
+          <div className={styles.statsGrid}>
+            <StatCounter end={1500} label="Active Members" />
+            <StatCounter end={50} label="Expert Trainers" />
+            <StatCounter end={120} label="Premium Machines" />
+            <StatCounter end={10} label="Years Excellence" />
+          </div>
+        </div>
+      </section>
 
-        <div className={styles.grid}>
-          <div className={styles.featureCard}>
-            <h3 className={styles.featureTitle}>Premium Equipment</h3>
-            <p className={styles.featureText}>
-              Train with the best using our wide range of high-end commercial machines and free weights.
-            </p>
-          </div>
-          <div className={styles.featureCard}>
-            <h3 className={styles.featureTitle}>Expert Trainers</h3>
-            <p className={styles.featureText}>
-              Get guidance from certified professionals dedicated to helping you achieve your fitness goals.
-            </p>
-          </div>
-          <div className={styles.featureCard}>
-            <h3 className={styles.featureTitle}>Modern Atmosphere</h3>
-            <p className={styles.featureText}>
-              Immerse yourself in a motivating environment designed to push your limits.
-            </p>
-          </div>
+      {/* Services/Features Section */}
+      <section className="section container">
+        <div className={styles.sectionHeader}>
+          <h2 className={styles.sectionTitle}>Our <span className="red-text">Services</span></h2>
+          <p className={styles.sectionSubtitle}>Tailored programs for every fitness level.</p>
+        </div>
+
+        <div className={styles.servicesGrid}>
+          <ServiceCard
+            title="Weight Training"
+            description="Access our massive collection of premium free weights and mechanical machines."
+            image="/images/weight_training.png"
+          />
+          <ServiceCard
+            title="Cardio Mastery"
+            description="High-performance treadmills, ellipticals, and rowers with interactive displays."
+            image="/images/cardio_machines.png"
+          />
+          <ServiceCard
+            title="Personal Coaching"
+            description="One-on-one sessions with certified elite trainers to reach your specific goals."
+            image="/images/hero_gym_8k.png"
+          />
         </div>
       </section>
     </main>

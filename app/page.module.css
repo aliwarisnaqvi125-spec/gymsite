@@ -26,104 +26,154 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.4);
+  transform: scale(1.1);
+  /* Prep for parallax */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
 }
 
 .heroContent {
   position: relative;
   z-index: 1;
-  max-width: 800px;
+  max-width: 1000px;
   padding: 2rem;
-  animation: fadeIn 1s ease-out;
 }
 
 .tagline {
   color: var(--color-primary);
-  font-weight: 700;
-  letter-spacing: 2px;
+  font-weight: 800;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  text-shadow: var(--glow-sm);
-  animation: neon-pulse 2s infinite ease-in-out;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  display: block;
 }
 
 .title {
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
+  font-weight: 900;
   text-transform: uppercase;
   line-height: 1.1;
   margin-bottom: 2rem;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  letter-spacing: -2px;
+}
+
+/* Staggered word animations */
+.titleWord1,
+.titleWord2,
+.titleWord3 {
+  display: inline-block;
+  opacity: 0;
+  animation: heroWordEntrance 1s ease-out forwards;
+}
+
+.titleWord1 {
+  animation-delay: 0.2s;
+}
+
+.titleWord2 {
+  animation-delay: 0.5s;
+}
+
+.titleWord3 {
+  animation-delay: 0.8s;
+}
+
+/* Hover glow effect on headline words */
+.titleWord1:hover,
+.titleWord2:hover,
+.titleWord3:hover {
+  text-shadow: 0 0 20px rgba(227, 27, 35, 0.4),
+    0 0 40px rgba(227, 27, 35, 0.2);
+  transition: text-shadow 0.3s ease-in-out;
+}
+
+@keyframes heroWordEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .subtitle {
-  font-size: 1.2rem;
-  color: #ddd;
-  margin-bottom: 3rem;
-  max-width: 600px;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  margin-bottom: 3.5rem;
+  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 .ctaGroup {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
 }
 
-/* Features Section */
-.features {
-  background-color: var(--color-bg);
+/* Stats Section */
+.statsSection {
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 4rem 0;
 }
 
-.grid {
+.statsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
-  margin-top: 3rem;
 }
 
-.featureCard {
-  background: var(--color-surface);
-  padding: 2.5rem;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  border: 1px solid transparent;
+/* Services */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
 }
 
-.featureCard:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-primary);
-  box-shadow: var(--glow-md);
-}
-
-.featureTitle {
-  font-size: 1.5rem;
+.sectionTitle {
+  font-size: 3rem;
   margin-bottom: 1rem;
-  color: #fff;
 }
 
-.featureText {
+.sectionSubtitle {
   color: var(--color-text-muted);
-  line-height: 1.6;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .servicesGrid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .title {
-    font-size: 2.5rem;
+  .hero {
+    height: 85vh;
   }
 
   .ctaGroup {
@@ -131,8 +181,11 @@
     gap: 1rem;
   }
 
-  .hero {
-    height: 90vh;
-    /* Adjust for mobile toolbar */
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 2.2rem;
   }
 }

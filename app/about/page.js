@@ -3,46 +3,56 @@ import Image from 'next/image';
 
 export default function AboutPage() {
     return (
-        <main className="section container">
+        <main className="section container animate-fade-in">
             <div className={styles.aboutHeader}>
-                <h1 className={styles.title}>About <span style={{ color: 'var(--color-primary)' }}>ALEE'S GYM</span></h1>
+                <span className={styles.tagline}>Since 2014</span>
+                <h1 className={styles.title}>The <span className="red-text">ALEE'S</span> Story</h1>
                 <p className={styles.lead}>
-                    More than just a gym. We are a community dedicated to strength, discipline, and progress.
+                    Defining the pinnacle of luxury fitness and elite performance in the heart of the city.
                 </p>
             </div>
 
             <div className={styles.content}>
                 <div className={styles.textBlock}>
-                    <h2>Our Philosophy</h2>
+                    <h2 className={styles.sectionTitle}>Elite Philosophy</h2>
                     <p>
-                        At ALEE'S GYM, we believe that fitness is a journey, not a destination. Established with the vision of providing a world-class training facility, we have curated a space where beginners and pro athletes alike can push their limits.
+                        At ALEE'S GYM, we don't just provide equipment; we provide an environment where evolution is inevitable. Founded on the principles of discipline and aesthetic excellence, our facility serves as a sanctuary for those who demand more from themselves.
                     </p>
                     <p>
-                        Our facility is equipped with top-tier machinery, free weights, and functional training zones designed to cater to every workout style. Whether you are building muscle, losing weight, or training for performance, we provide the tools you need to succeed.
+                        Our space is meticulously curated with the world's most advanced training technology, from bio-mechanically optimized machines to artisanal free weights. Here, every rep counts, and every detail matters.
                     </p>
                 </div>
                 <div className={styles.imageBlock}>
-                    {/* Placeholder for About Image - could reuse Hero or another if available */}
-                    <div className={styles.placeholderImage}>
-                        <span>Gym Interior Shot</span>
+                    <div className={styles.imageWrapper}>
+                        <Image
+                            src="/images/hero_gym_8k.png"
+                            alt="Luxury Gym Interior"
+                            fill
+                            className={styles.image}
+                        />
+                        <div className={styles.imageOverlay}></div>
                     </div>
                 </div>
             </div>
 
             <div className={styles.values}>
                 <div className={styles.valueItem}>
-                    <h3>Commitment</h3>
-                    <p>We are committed to providing a clean, safe, and motivating environment.</p>
+                    <div className={styles.valueNumber}>01</div>
+                    <h3 className={styles.valueTitle}>Precision</h3>
+                    <p>Every piece of equipment is calibrated for maximum results and safety.</p>
                 </div>
                 <div className={styles.valueItem}>
-                    <h3>Excellence</h3>
-                    <p>Only the best equipment and trainers make it into our facility.</p>
+                    <div className={styles.valueNumber}>02</div>
+                    <h3 className={styles.valueTitle}>Exclusivity</h3>
+                    <p>A focused environment designed for serious athletes and transformation.</p>
                 </div>
                 <div className={styles.valueItem}>
-                    <h3>Community</h3>
-                    <p>Join a supportive network of like-minded individuals.</p>
+                    <div className={styles.valueNumber}>03</div>
+                    <h3 className={styles.valueTitle}>Excellence</h3>
+                    <p>Our trainers are international gold-standard certified professionals.</p>
                 </div>
             </div>
         </main>
     );
 }
+
