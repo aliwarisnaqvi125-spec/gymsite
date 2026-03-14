@@ -30,7 +30,7 @@ export default function Navbar() {
     return (
         <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
-                <Link href="/" className={styles.logo}>
+                <Link href="/" className={styles.logo} target="_blank" rel="noopener noreferrer">
                     <span className={styles.logoIcon}>✓</span>
                     Task<span className={styles.highlight}>Flow</span>
                     <span className={styles.logoBadge}>USA</span>
@@ -43,13 +43,14 @@ export default function Navbar() {
                                 <Link
                                     href={link.href}
                                     className={`${styles.navLink} ${pathname === link.href ? styles.activeLink : ''}`}
+                                    target="_blank" rel="noopener noreferrer"
                                 >
                                     {link.label}
                                 </Link>
                             </li>
                         ))}
                     </ul>
-                    <Link href="/tasks" className="btn btn-primary">
+                    <Link href="/tasks" className="btn btn-primary" target="_blank" rel="noopener noreferrer">
                         Start Free →
                     </Link>
                 </nav>

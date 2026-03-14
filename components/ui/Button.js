@@ -12,7 +12,7 @@ export default function Button({
 
     if (href) {
         return (
-            <Link href={href} className={buttonClass} {...props}>
+            <Link href={href} className={buttonClass} target="_blank" rel="noopener noreferrer" {...props}>
                 {children}
             </Link>
         );

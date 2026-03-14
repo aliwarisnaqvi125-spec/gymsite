@@ -115,7 +115,7 @@ export default function BlogPage() {
                             <div className={styles.featuredTags}>
                                 {featured.tags.map(t => <span key={t} className={styles.tag}>#{t}</span>)}
                             </div>
-                            <Link href={`/blog/${featured.id}`} className="btn btn-primary">Read Article →</Link>
+                            <Link href={`/blog/${featured.id}`} className="btn btn-primary" target="_blank" rel="noopener noreferrer">Read Article →</Link>
                         </div>
                     </div>
                 )}
@@ -135,7 +135,7 @@ export default function BlogPage() {
                                     <div className={styles.postTags}>
                                         {post.tags.slice(0, 2).map(t => <span key={t} className={styles.tag}>#{t}</span>)}
                                     </div>
-                                    <Link href={`/blog/${post.id}`} className={styles.readMore}>Read →</Link>
+                                    <Link href={`/blog/${post.id}`} className={styles.readMore} target="_blank" rel="noopener noreferrer">Read →</Link>
                                 </div>
                             </div>
                         ))}

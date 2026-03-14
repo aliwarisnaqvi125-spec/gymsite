@@ -100,10 +100,10 @@ export default function HomePage() {
               Manage your daily tasks, track finances, discover money-saving tips, and tools designed specifically for life in the USA.
             </p>
             <div className={styles.heroCta}>
-              <Link href="/tasks" className="btn btn-primary btn-lg">
+              <Link href="/tasks" className="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
                 Get Today's Task List ✓
               </Link>
-              <Link href="/tools" className={`btn btn-lg ${styles.btnGhost}`}>
+              <Link href="/tools" className={`btn btn-lg ${styles.btnGhost}`} target="_blank" rel="noopener noreferrer">
                 Explore Free Tools
               </Link>
             </div>
@@ -265,7 +265,7 @@ export default function HomePage() {
                   { icon: '💳', label: 'Debt Payoff', href: '/finance#debt', color: '#ef4444' },
                   { icon: '📅', label: 'Weekly Planner', href: '/tasks', color: '#0891b2' },
                 ].map((tool, i) => (
-                  <Link key={i} href={tool.href} className={styles.toolCard}>
+                  <Link key={i} href={tool.href} className={styles.toolCard} target="_blank" rel="noopener noreferrer">
                     <span className={styles.toolIcon} style={{ background: `${tool.color}20`, color: tool.color }}>
                       {tool.icon}
                     </span>

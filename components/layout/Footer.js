@@ -27,7 +27,7 @@ export default function Footer() {
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.brand}>
-                    <Link href="/" className={styles.logo}>
+                    <Link href="/" className={styles.logo} target="_blank" rel="noopener noreferrer">
                         <span className={styles.logoIcon}>✓</span>
                         Task<span className={styles.highlight}>Flow</span>
                         <span className={styles.logoBadge}>USA</span>
@@ -44,7 +44,7 @@ export default function Footer() {
                         <ul className={styles.links}>
                             {links.map(link => (
                                 <li key={link.href}>
-                                    <Link href={link.href} className={styles.link}>{link.label}</Link>
+                                    <Link href={link.href} className={styles.link} target="_blank" rel="noopener noreferrer">{link.label}</Link>
                                 </li>
                             ))}
                         </ul>
@@ -56,9 +56,9 @@ export default function Footer() {
                 <div className={styles.bottomInner}>
                     <p className={styles.copyright}>© 2025 TaskFlow USA. All rights reserved.</p>
                     <div className={styles.legal}>
-                        <Link href="/privacy">Privacy Policy</Link>
-                        <Link href="/terms">Terms of Service</Link>
-                        <Link href="/advertise">Advertise</Link>
+                        <Link href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</Link>
+                        <Link href="/terms" target="_blank" rel="noopener noreferrer">Terms of Service</Link>
+                        <Link href="/advertise" target="_blank" rel="noopener noreferrer">Advertise</Link>
                     </div>
                 </div>
             </div>
