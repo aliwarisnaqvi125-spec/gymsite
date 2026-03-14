@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="monetag" content="7091fd85dda71e1175a3595237936c71" />
         <script dangerouslySetInnerHTML={{ __html: `(function(s){s.dataset.zone='10731054',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))` }} />
+        <script dangerouslySetInnerHTML={{ __html: `(function(s){s.dataset.zone='10731075',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))` }} />
       </head>
       <body className={inter.variable}>
         <Navbar />
