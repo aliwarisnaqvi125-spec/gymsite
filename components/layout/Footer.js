@@ -1,52 +1,66 @@
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
-export default function Footer() {
-    const currentYear = new Date().getFullYear();
+const footerLinks = {
+    'Productivity': [
+        { label: 'Daily Tasks', href: '/tasks' },
+        { label: 'Life Tools', href: '/tools' },
+        { label: 'Habit Tracker', href: '/tools#habits' },
+        { label: 'Goal Planner', href: '/tools#goals' },
+    ],
+    'Finance': [
+        { label: 'Budget Calculator', href: '/finance' },
+        { label: 'Tax Tips', href: '/finance#tax' },
+        { label: 'Savings Goals', href: '/finance#savings' },
+        { label: 'Credit Score', href: '/finance#credit' },
+    ],
+    'Resources': [
+        { label: 'Tips & Tricks', href: '/blog' },
+        { label: 'US Life Guides', href: '/blog#guides' },
+        { label: 'Community', href: '/community' },
+        { label: 'Newsletter', href: '/newsletter' },
+    ],
+};
 
+export default function Footer() {
     return (
         <footer className={styles.footer}>
             <div className={styles.container}>
-                <div className={styles.column}>
-                    <h3 className={styles.logo}>ALEE'S <span className={styles.highlight}>GYM</span></h3>
-                    <p className={styles.description}>
-                        Experience the gold standard of fitness. Our luxury facility and elite training programs are designed to push you beyond your limits.
+                <div className={styles.brand}>
+                    <Link href="/" className={styles.logo}>
+                        <span className={styles.logoIcon}>✓</span>
+                        Task<span className={styles.highlight}>Flow</span>
+                        <span className={styles.logoBadge}>USA</span>
+                    </Link>
+                    <p className={styles.tagline}>
+                        Your daily companion for productivity, finances, and American life.
                     </p>
-                    <div className={styles.socials}>
-                        {/* Placeholder for icons */}
-                        <span className={styles.socialIcon}>IG</span>
-                        <span className={styles.socialIcon}>FB</span>
-                        <span className={styles.socialIcon}>TW</span>
+                    <div className={styles.flags}>🇺🇸 Made for Americans</div>
+                </div>
+
+                {Object.entries(footerLinks).map(([section, links]) => (
+                    <div key={section} className={styles.column}>
+                        <h4 className={styles.columnTitle}>{section}</h4>
+                        <ul className={styles.links}>
+                            {links.map(link => (
+                                <li key={link.href}>
+                                    <Link href={link.href} className={styles.link}>{link.label}</Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
-                </div>
-
-                <div className={styles.column}>
-                    <h4 className={styles.columnTitle}>Navigation</h4>
-                    <ul className={styles.links}>
-                        <li><Link href="/about">Our Story</Link></li>
-                        <li><Link href="/equipment">The Facility</Link></li>
-                        <li><Link href="/gallery">Lookbook</Link></li>
-                        <li><Link href="/contact">Join the Elite</Link></li>
-                    </ul>
-                </div>
-
-                <div className={styles.column}>
-                    <h4 className={styles.columnTitle}>Connect</h4>
-                    <ul className={styles.contactInfo}>
-                        <li>
-                            <strong>Inquiries:</strong> <br />
-                            <a href="mailto:aliwarisnaqvi125@gmail.com" className={styles.email}>aliwarisnaqvi125@gmail.com</a>
-                        </li>
-                        <li>
-                            <strong>Visit Us:</strong> <br />
-                            123 Fitness Street, <br /> Luxury District, GC
-                        </li>
-                    </ul>
-                </div>
+                ))}
             </div>
 
-            <div className={styles.copyright}>
-                <p>&copy; {currentYear} ALEE'S GYM. ALL RIGHTS RESERVED.</p>
+            <div className={styles.bottom}>
+                <div className={styles.bottomInner}>
+                    <p className={styles.copyright}>© 2025 TaskFlow USA. All rights reserved.</p>
+                    <div className={styles.legal}>
+                        <Link href="/privacy">Privacy Policy</Link>
+                        <Link href="/terms">Terms of Service</Link>
+                        <Link href="/advertise">Advertise</Link>
+                    </div>
+                </div>
             </div>
         </footer>
     );

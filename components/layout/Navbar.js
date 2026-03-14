@@ -2,64 +2,68 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Button from '../ui/Button';
 import styles from './Navbar.module.css';
 
+const navLinks = [
+    { href: '/', label: 'Home' },
+    { href: '/tasks', label: 'Daily Tasks' },
+    { href: '/tools', label: 'Life Tools' },
+    { href: '/finance', label: 'Finance' },
+    { href: '/blog', label: 'Tips & Tricks' },
+];
+
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const pathname = usePathname();
 
     useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        const onScroll = () => setScrolled(window.scrollY > 20);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
-    const toggleMenu = () => setIsOpen(!isOpen);
-
-    const navLinks = [
-        { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
-        { name: 'Machines', href: '/equipment' },
-        { name: 'Gallery', href: '/gallery' },
-        { name: 'Contact', href: '/contact' },
-    ];
+    useEffect(() => {
+        setMenuOpen(false);
+    }, [pathname]);
 
     return (
-        <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+        <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
-                    ALEE'S <span className={styles.highlight}>GYM</span>
+                    <span className={styles.logoIcon}>✓</span>
+                    Task<span className={styles.highlight}>Flow</span>
+                    <span className={styles.logoBadge}>USA</span>
                 </Link>
 
-                <div className={`${styles.navMenu} ${isOpen ? styles.active : ''}`}>
+                <nav className={`${styles.navMenu} ${menuOpen ? styles.active : ''}`}>
                     <ul className={styles.navLinks}>
-                        {navLinks.map((link) => (
-                            <li key={link.name}>
+                        {navLinks.map(link => (
+                            <li key={link.href}>
                                 <Link
                                     href={link.href}
                                     className={`${styles.navLink} ${pathname === link.href ? styles.activeLink : ''}`}
-                                    onClick={() => setIsOpen(false)}
                                 >
-                                    {link.name}
+                                    {link.label}
                                 </Link>
                             </li>
                         ))}
                     </ul>
-                    <div className={styles.navBtn}>
-                        <Button href="/contact" variant="primary">Join Now</Button>
-                    </div>
-                </div>
+                    <Link href="/tasks" className="btn btn-primary">
+                        Start Free →
+                    </Link>
+                </nav>
 
-                <div className={styles.hamburger} onClick={toggleMenu}>
-                    <div className={`${styles.bar} ${isOpen ? styles.open : ''}`}></div>
-                    <div className={`${styles.bar} ${isOpen ? styles.open : ''}`}></div>
-                    <div className={`${styles.bar} ${isOpen ? styles.open : ''}`}></div>
-                </div>
+                <button
+                    className={styles.hamburger}
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    <span className={`${styles.bar} ${menuOpen ? styles.open : ''}`} />
+                    <span className={`${styles.bar} ${menuOpen ? styles.open : ''}`} />
+                    <span className={`${styles.bar} ${menuOpen ? styles.open : ''}`} />
+                </button>
             </div>
-        </nav>
+        </header>
     );
 }

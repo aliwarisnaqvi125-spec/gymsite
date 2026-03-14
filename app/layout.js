@@ -1,25 +1,22 @@
-import { Outfit } from "next/font/google";
-import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import { Inter } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  display: 'swap',
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata = {
-  title: "ALEE'S GYM | High-End Fitness Center",
-  description: "Join ALEE'S GYM for top-tier fitness training, modern equipment, and a professional environment.",
+  title: 'TaskFlow USA – Daily Tasks, Productivity & Life Tools',
+  description: 'Your go-to hub for daily productivity tasks, life hacks, financial tools, and resources built for Americans. Stay organized, save money, and get more done.',
+  keywords: 'productivity, tasks, daily planner, American lifestyle, financial tools, to-do list, life hacks USA',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={outfit.variable}>
+      <body className={inter.variable}>
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

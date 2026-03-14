@@ -1,0 +1,215 @@
+.page {
+    padding-top: 80px;
+    min-height: 100vh;
+}
+
+.header {
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: #fff;
+    padding: 3rem 0 2.5rem;
+}
+
+.header .section-label {
+    color: #60a5fa;
+}
+
+.header .section-title {
+    color: #fff;
+}
+
+.pointsDisplay {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    color: #fbbf24;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.bigPoints {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: sticky;
+    top: 100px;
+}
+
+.catTab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.catTab:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.catTabActive {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff !important;
+}
+
+.catProgress {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.15rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}
+
+.catTabActive .catProgress {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.adSide {
+    height: 300px;
+    flex-direction: column;
+    margin-top: 1.5rem;
+}
+
+.main {}
+
+.taskHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.taskCategory {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-text-main);
+}
+
+.taskProgress {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+.taskGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.taskCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.taskCard:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.06);
+}
+
+.taskCardDone {
+    opacity: 0.55;
+    background: var(--color-surface-2);
+}
+
+.check {
+    width: 28px;
+    height: 28px;
+    border: 2px solid var(--color-border);
+    border-radius: 8px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    background: transparent;
+    transition: all 0.2s;
+}
+
+.taskCardDone .check {
+    background: var(--color-success);
+    border-color: var(--color-success);
+}
+
+.taskInfo {
+    flex: 1;
+}
+
+.taskText {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--color-text-main);
+    margin: 0 0 0.3rem;
+    transition: all 0.2s;
+}
+
+.taskCardDone .taskText {
+    text-decoration: line-through;
+    color: var(--color-text-muted);
+}
+
+.timeEst {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.pts {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #f59e0b;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .catTab {
+        flex: 1;
+        min-width: 120px;
+    }
+
+    .adSide {
+        display: none;
+    }
+}
